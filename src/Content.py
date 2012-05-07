@@ -63,6 +63,20 @@ class Content:
                 targets.append(target)
         return targets;
 
+    def get_target_dependencies(self, target_name):
+        full_dependencies = ""
+        for target in self.targets:
+            if target.Name == target_name:
+                if target.Depends == []:
+                    return "No Dependencies"
+                else:
+                    for depend in target.Depends:
+                        if (full_dependencies == ""):
+                            full_dependencies = depend
+                        else:
+                            full_dependencies += " \n|\n " + depend
+                        #self.get_target_dependencies(depend)
+        return full_dependencies
             
     def get_target(self, target_name):
         for indv in self.targets:

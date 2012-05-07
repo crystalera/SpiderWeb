@@ -42,6 +42,8 @@ class Parser:
     def get_targets_by_file(self, file_name):
         return self.HOLDER.get_file_targets(file_name)
 
+    def get_target_dependencies(self, target):
+        return self.HOLDER.get_target_dependencies(target)
     def locate_files(self, pattern, root=os.curdir):
         '''Locate all files matching supplied filename pattern in and below
         supplied root directory.'''

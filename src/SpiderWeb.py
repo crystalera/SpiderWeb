@@ -40,7 +40,8 @@ class StartUp(wx.Frame):
 
  def OnSelChanged(self, event):
      item =  event.GetItem()
-     self.display.SetLabel("blah" + self.tree.GetItemText(item))
+     
+     self.display.SetLabel(parser.get_target_dependencies(self.tree.GetItemText(item)))
 
  def opendir(self, event):
      dlg = wx.DirDialog(self, "Choose a directory:", style=wx.DD_DEFAULT_STYLE | wx.DD_NEW_DIR_BUTTON)
